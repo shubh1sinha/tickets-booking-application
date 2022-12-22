@@ -11,3 +11,4 @@ spec:
   ports:
   - name: http
     port: 9192
+    targetPort: 9192
