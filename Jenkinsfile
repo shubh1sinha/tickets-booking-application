@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("checkout"){
             steps{
-                bat "git clone https://github.com/shubh1sinha/multi-ticket-application.git"
+                sh "git clone https://github.com/shubh1sinha/tickets-booking-application.git"
             }
         }
         
