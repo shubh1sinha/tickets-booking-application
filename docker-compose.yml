@@ -1,0 +1,106 @@
+version: '3'
+services:   
+  eureka-server:
+    image: tour-eureak-server:1.0
+    container_name: eureka-server
+    expose:
+    - "9190"
+    ports: 
+    - 9190:9190
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    expose:
+    - "27018"
+    ports: 
+    - 27017:27017
+   
+  mariadb:
+    image: mariadb:10.3
+    container_name: mariadb
+    expose:
+    - "3307"
+    ports: 
+    - 3307:3306
+    environment:
+      MYSQL_DATABASE: userservice
+      MYSQL_ROOT_PASSWORD: shubh123456
+     
+  user-bus-microservice:
+    image: user-bus-microservice:1.0
+    ports:
+    - "9194:9194"
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:9190/eureka -DDB_USER=root -DDB_PASSWORD=shubh123456 -DMYSQL_HOST=mariadb
+      
+    links: 
+        - eureka-server
+        - mariadb
+ 
+  user-train-microservice:
+    image: user-train-microservice:1.0
+    ports:
+    - "9192:9192"
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:9190/eureka -DDB_USER=root -DDB_PASSWORD=shubh123456 -DMYSQL_HOST=mariadb
+      
+    links: 
+        - eureka-server
+        - mariadb
+        
+  user-hotels-microservice:
+    image: user-hotels-microservice:1.0
+    ports:
+    - "9193:9193"
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:9190/eureka 
+      
+    links: 
+        - eureka-server
+        - mongo
+        
+  user-microservice:
+    image: user-microservice:1.0
+    ports:
+    - "9191:9191"
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:9190/eureka
+      
+    links: 
+        - eureka-server
+        - mongo
+
+  user-frontend-service:
+    image: user-frontend-service:1.0
+    ports:
+    - "9196:9196"
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:9190/eureka
+      
+    links: 
+        - eureka-server
+        
+  user-order-api-gateway:
+    image: user-order-api-gateway:1.0
+    ports:
+    - "9195:9195"
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:9190/eureka
+      
+    links: 
+        - eureka-server
+        
+  employee-management-react:
+    image: multi-ticket-react:1.0
+    expose:
+    - "3000"
+    ports:
+    - "3000:3000"
+        

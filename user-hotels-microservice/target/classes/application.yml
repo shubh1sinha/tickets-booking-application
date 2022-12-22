@@ -1,0 +1,19 @@
+server:
+ port: 9193
+
+spring:
+ application:
+    name: user-hotels-microservice
+ data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: training
+ 
+
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone:  ${EUREKA_SERVER:http://localhost:9190/eureka/}
+debug: true 

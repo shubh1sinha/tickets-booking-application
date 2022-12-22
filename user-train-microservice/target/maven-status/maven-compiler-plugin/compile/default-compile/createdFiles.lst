@@ -1,0 +1,16 @@
+com\spring\repo\SourceDestinationRepository.class
+com\spring\entity\Booking.class
+com\spring\dto\SourceDestinationDTO.class
+com\spring\repo\TrainsRepository.class
+com\spring\dto\TrainsDTO.class
+com\spring\UserTrainMicroserviceApplication.class
+com\spring\service\TrainService.class
+com\spring\dto\SeatDTO.class
+com\spring\entity\SourceDestination.class
+com\spring\rest\TrainsRestController.class
+com\spring\dto\BookingDTO.class
+com\spring\service\TrainsServiceDAO.class
+com\spring\repo\SeatRepository.class
+com\spring\repo\BookingRepository.class
+com\spring\entity\Trains.class
+com\spring\entity\Seat.class
