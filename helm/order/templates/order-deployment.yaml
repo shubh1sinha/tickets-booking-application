@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: order-container
-          image: shubh1sinha/app-order-microservice:1.1
+          image: shubh1sinha/user-order-api-gateway:1.1
           imagePullPolicy: Always
           resources:
             limits:

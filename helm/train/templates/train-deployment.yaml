@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: train-container
-          image: shubh1sinha/app-train-microservice:1.1
+          image: shubh1sinha/user-train-microservice:1.1
           imagePullPolicy: Always
           resources:
             limits:

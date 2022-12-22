@@ -1,4 +1,4 @@
-apiVersion: frontends/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: frontend-container
-          image: shubh1sinha/frontend-frontend-microservice:1.1
+          image: shubh1sinha/user-frontend-service:1.1
           imagePullPolicy: Always
           resources:
             limits:

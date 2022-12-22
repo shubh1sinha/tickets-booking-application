@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: hotel-container
-          image: shubh1sinha/app-hotel-microservice:1.1
+          image: shubh1sinha/user-hotels-microservice:1.1
           imagePullPolicy: Always
           resources:
             limits:
