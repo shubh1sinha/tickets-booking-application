@@ -6,8 +6,9 @@ spring:
     name: user-hotels-microservice
  data:
     mongodb:
-      host: mongo
+      host: localhost
       port: 27017
+      database: training
  
 
 eureka:
