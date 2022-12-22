@@ -100,8 +100,8 @@ pipeline{
 		stage("Pushing Images"){
             steps{
                 sh " sudo docker push shubh1sinha/user-microservice:1.1"
-                sh " sudo docker push shubh1sinha/shubh1sinha/user-bus-microservice:1.1"
-                sh " sudo docker push shubh1sinha/shubh1sinha/user-train-microservice:1.1"
+                sh " sudo docker push shubh1sinha/user-bus-microservice:1.1"
+                sh " sudo docker push shubh1sinha/user-train-microservice:1.1"
                 sh " sudo docker push shubh1sinha/user-hotels-microservice:1.1"
                 sh " sudo docker push shubh1sinha/user-order-api-gateway:1.1"
                 sh " sudo docker push shubh1sinha/user-frontend-service:1.1"
