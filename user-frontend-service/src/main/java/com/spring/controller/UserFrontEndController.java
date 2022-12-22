@@ -28,14 +28,7 @@ import com.spring.entity.Order;
 import com.spring.entity.Registration;
 import com.spring.entity.SourceDestination;
 import com.spring.entity.Trains;
-/****
- * 
- * @author shusinha5
- * @project Employee-Management
- * @Description Full Stack Application
- * 		with devops.
- *
- */
+
 @CrossOrigin(origins = "http://localhost:3000/")
 @RequestMapping(value="/user")
 @Controller
@@ -109,7 +102,7 @@ public class UserFrontEndController {
 	@GetMapping(value = "/sd/list")
 	public ResponseEntity<List<SourceDestination>> sdList(){
 		ResponseEntity<List<SourceDestination>> sdList =rt.exchange(
-				"http://localhost:9192/sd/list", HttpMethod.GET,
+				"http://user-train-microservice/sd/list", HttpMethod.GET,
 				null, new ParameterizedTypeReference<List<SourceDestination>>() {
 				});
 		return sdList;
@@ -118,7 +111,7 @@ public class UserFrontEndController {
 	
 	@PostMapping(value = "/train/list")
 	public ResponseEntity<List<Trains>> trainsList(@RequestBody Trains train){
-		ResponseEntity<List<Trains>> trainList = rt.exchange("http://localhost:9192/trains/"+train.getSourceId()+"/"+train.getDestinationId()+"/"+train.getDeparture(), HttpMethod.POST,null, new ParameterizedTypeReference<List<Trains>>() {
+		ResponseEntity<List<Trains>> trainList = rt.exchange("http://user-train-microservice/trains/"+train.getSourceId()+"/"+train.getDestinationId()+"/"+train.getDeparture(), HttpMethod.POST,null, new ParameterizedTypeReference<List<Trains>>() {
 		});
 		return trainList;
 		
@@ -126,14 +119,14 @@ public class UserFrontEndController {
 	
 	@PostMapping(value = "/book/train")
 	public ResponseEntity<String> bookTrain(@RequestBody Booking train){
-		ResponseEntity<String> booking = rt.postForEntity("http://localhost:9192/bookings", train, String.class);
+		ResponseEntity<String> booking = rt.postForEntity("http://user-train-microservice/bookings", train, String.class);
 		return booking;
 	}
 	
 	@GetMapping(value="/get/train/{id}")
 	public ResponseEntity<Trains> getTrain(@PathVariable("id") String id){
 		ResponseEntity<Trains> trainList =rt.getForEntity(
-				"http://localhost:9192/get/train/"+id, Trains.class);
+				"http://user-train-microservice/get/train/"+id, Trains.class);
 		return trainList;
 		
 	}

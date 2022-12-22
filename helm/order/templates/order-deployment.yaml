@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-deployment
+   
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: order-pod
+      labels:
+        app: order-app
+    spec:
+      containers:
+        - name: order-container
+          image: shubh1sinha/app-order-microservice:1.1
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: '50m'
+              memory: '1G'
+            requests:
+              cpu: '1m'
+              memory: '348Mi'
+          ports:
+          - containerPort: 9195
+            name: http         
+  selector:
+    matchLabels:
+     app: order-app

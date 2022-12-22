@@ -18,6 +18,7 @@ public class UserFrontEndServiceApplication {
 	}
 	
 	@Bean
+	@LoadBalanced
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}

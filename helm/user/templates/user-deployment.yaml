@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-deployment
+   
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: user-pod
+      labels:
+        app: user-app
+    spec:
+      containers:
+        - name: user-container
+          image: shubh1sinha/app-user-microservice:1.1
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: '50m'
+              memory: '1G'
+            requests:
+              cpu: '1m'
+              memory: '348Mi'
+          ports:
+          - containerPort: 9191
+            name: http         
+  selector:
+    matchLabels:
+     app: user-app

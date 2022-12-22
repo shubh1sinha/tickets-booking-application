@@ -1,0 +1,30 @@
+apiVersion: buss/v1
+kind: Deployment
+metadata:
+  name: bus-deployment
+   
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: bus-pod
+      labels:
+        bus: bus-app
+    spec:
+      containers:
+        - name: bus-container
+          image: shubh1sinha/bus-bus-microservice:1.1
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: '50m'
+              memory: '1G'
+            requests:
+              cpu: '1m'
+              memory: '348Mi'
+          ports:
+          - containerPort: 9194
+            name: http         
+  selector:
+    matchLabels:
+     bus: bus-app

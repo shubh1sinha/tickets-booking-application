@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: train-deployment
+   
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: train-pod
+      labels:
+        app: train-app
+    spec:
+      containers:
+        - name: train-container
+          image: shubh1sinha/app-train-microservice:1.1
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: '50m'
+              memory: '1G'
+            requests:
+              cpu: '1m'
+              memory: '348Mi'
+          ports:
+          - containerPort: 9192
+            name: http         
+  selector:
+    matchLabels:
+     app: train-app

@@ -41,16 +41,16 @@ public class OrderController {
 	@GetMapping(value = "user/booking/{username}")
 	public ResponseEntity<Order> userOrderDetails(@PathVariable("username") String username) {
 
-		ResponseEntity<Registration> userDetails = rt.exchange("http://USER-MICROSERVICE/user/find/" + username,
+		ResponseEntity<Registration> userDetails = rt.exchange("http://localhost:9191/user/find/" + username,
 				HttpMethod.GET, null, new ParameterizedTypeReference<Registration>() {
 				});
-		ResponseEntity<List<Booking>> trainBooking = rt.exchange("http://USER-TRAIN-MICROSERVICE/booking/list/" + username,
+		ResponseEntity<List<Booking>> trainBooking = rt.exchange("http://localhost:9192/booking/list/" + username,
 				HttpMethod.GET, null, new ParameterizedTypeReference<List<Booking>>() {
 				});
-		ResponseEntity<List<HotelBooking>> hotelBooking = rt.exchange("http://USER-HOTELS-MICROSERVICE/booking/list/" + username,
+		ResponseEntity<List<HotelBooking>> hotelBooking = rt.exchange("http://localhost:9193/booking/list/" + username,
 				HttpMethod.GET, null, new ParameterizedTypeReference<List<HotelBooking>>() {
 				});
-		ResponseEntity<List<BusBooking>> busBooking = rt.exchange("http://USER-BUS-MICROSERVICE/booking/list/" + username,
+		ResponseEntity<List<BusBooking>> busBooking = rt.exchange("http://localhost:9194/booking/list/" + username,
 				HttpMethod.GET, null, new ParameterizedTypeReference<List<BusBooking>>() {
 				});
 

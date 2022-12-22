@@ -7,7 +7,7 @@ spring:
  datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     password: ${DB_PASSWORD:shubh123456}
-    url: jdbc:mariadb://${MYSQL_HOST:localhost}:3307/userservice
+    url: ${JDBC_URL:jdbc:mariadb://localhost:3306/userservice}
     username: ${DB_USER:root}
  jpa:
     hibernate:

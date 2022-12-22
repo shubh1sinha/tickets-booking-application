@@ -6,9 +6,8 @@ spring:
     name: user-microservice
  data:
     mongodb:
-      host: localhost
+      host: mongo
       port: 27017
-      database: training
     
 eureka:
   client:

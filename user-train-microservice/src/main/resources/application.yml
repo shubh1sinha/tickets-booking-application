@@ -7,8 +7,8 @@ spring:
  datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     password: ${DB_PASSWORD:shubh123456}
-    url: jdbc:mariadb://${MYSQL_HOST:localhost}:3307/userservice
-    username: ${DB_USER:root}
+    url: ${JDBC_URL:jdbc:mariadb://training.c4nar1amqhye.us-east-1.rds.amazonaws.com:3306/userservice}
+    username: ${DB_USER:admin}
  jpa:
     hibernate:
       ddl-auto: update
@@ -17,8 +17,12 @@ spring:
  
 
 eureka:
+  instance:
+    preferIpAddress: true
+    hostname: eureka-0
   client:
-    register-with-eureka: true
-    service-url:
-      defaultZone:  ${EUREKA_SERVER:http://localhost:9190/eureka/}
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:9190/eureka
 debug: true 

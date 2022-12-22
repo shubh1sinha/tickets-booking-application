@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotel-deployment
+   
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: hotel-pod
+      labels:
+        app: hotel-app
+    spec:
+      containers:
+        - name: hotel-container
+          image: shubh1sinha/app-hotel-microservice:1.1
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: '50m'
+              memory: '1G'
+            requests:
+              cpu: '1m'
+              memory: '348Mi'
+          ports:
+          - containerPort: 9193
+            name: http         
+  selector:
+    matchLabels:
+     app: hotel-app

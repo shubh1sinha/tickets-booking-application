@@ -6,14 +6,18 @@ spring:
     name: user-hotels-microservice
  data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: training
+      uri: mongodb://my-mongo-db:TnHbygakV0UnZNp0hamtVmRkf1kdChw6V57MATweVrQA6pYzyg05XwRiH9341UpGAL5REiHC3VhJACDbh9rEbA==@my-mongo-db.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@my-mongo-db@
+      host: my-mongo-db.mongo.cosmos.azure.com
+      port: 10255
  
 
 eureka:
+  instance:
+    preferIpAddress: true
+    hostname: eureka-0
   client:
-    register-with-eureka: true
-    service-url:
-      defaultZone:  ${EUREKA_SERVER:http://localhost:9190/eureka/}
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:9190/eureka
 debug: true 
