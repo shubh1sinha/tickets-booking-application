@@ -23,7 +23,7 @@ spec:
               cpu: '1m'
               memory: '348Mi'
           ports:
-          - containerPort: 9196
+          - containerPort: 9197
             name: http         
   selector:
     matchLabels:

@@ -10,5 +10,5 @@ spec:
   type: LoadBalancer
   ports:
   - name: http
-    port: 9196
-    targetPort: 9196
+    port: 9197
+    targetPort: 9197
