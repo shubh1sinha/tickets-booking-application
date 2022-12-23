@@ -6,7 +6,7 @@ spring:
     name: user-hotels-microservice
  data:
     mongodb:
-      uri: mongodb://my-mongo-db:TnHbygakV0UnZNp0hamtVmRkf1kdChw6V57MATweVrQA6pYzyg05XwRiH9341UpGAL5REiHC3VhJACDbh9rEbA==@my-mongo-db.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@my-mongo-db@
+      uri: mongodb://my-mongo-db:efDaNh1Q59dO3QuZS41FCwMEexFPhmbYZGYEckfVkDsoOjQauc6JTXF3J1XFKG0jg0jd2ops0rcAACDbDb9JZw==@my-mongo-db.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@my-mongo-db@
       database: userservice
  
 
